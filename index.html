@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn HTML from basics to advanced with interactive lessons, live code editors, and quizzes. Free, no sign-up needed.">
+  <meta property="og:title" content="HTMLcraft — Learn HTML from Zero to Hero">
+  <meta property="og:description" content="15 interactive lessons covering HTML basics through advanced techniques.">
+  <meta property="og:type" content="website">
+  <title>HTMLcraft — Learn HTML from Zero to Hero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <button class="hamburger" onclick="toggleSidebar()" aria-label="Toggle navigation menu">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <line x1="3" y1="6" x2="17" y2="6"/>
+      <line x1="3" y1="10" x2="17" y2="10"/>
+      <line x1="3" y1="14" x2="17" y2="14"/>
+    </svg>
+  </button>
+  <div class="logo">
+    <span class="logo-bracket">&lt;</span><span class="logo-text">HTMLcraft</span><span class="logo-bracket">/&gt;</span>
+    <span class="logo-dot" style="opacity:0.3">·</span>
+  </div>
+  <div class="topbar-right">
+    <div class="progress-pill">
+      <span id="progress-text">0 / 15</span>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- SIDEBAR OVERLAY (mobile) -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-section">
+    <div class="sidebar-label level-basics"><span class="level-dot"></span>Basics</div>
+    <div class="nav-item" onclick="openLesson(0)" id="nav-0"><span class="nav-num">01</span>HTML Structure<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(1)" id="nav-1"><span class="nav-num">02</span>Headings &amp; Text<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(2)" id="nav-2"><span class="nav-num">03</span>Links &amp; Images<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(3)" id="nav-3"><span class="nav-num">04</span>Lists<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(4)" id="nav-4"><span class="nav-num">05</span>Attributes<span class="nav-check">✓</span></div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label level-intermediate"><span class="level-dot"></span>Intermediate</div>
+    <div class="nav-item" onclick="openLesson(5)" id="nav-5"><span class="nav-num">06</span>Tables<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(6)" id="nav-6"><span class="nav-num">07</span>Forms &amp; Inputs<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(7)" id="nav-7"><span class="nav-num">08</span>Semantic HTML5<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(8)" id="nav-8"><span class="nav-num">09</span>Media Elements<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(9)" id="nav-9"><span class="nav-num">10</span>Div &amp; Span Layout<span class="nav-check">✓</span></div>
+  </div>
+  <div class="sidebar-section">
+    <div class="sidebar-label level-advanced"><span class="level-dot"></span>Advanced</div>
+    <div class="nav-item" onclick="openLesson(10)" id="nav-10"><span class="nav-num">11</span>Meta &amp; SEO<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(11)" id="nav-11"><span class="nav-num">12</span>Accessibility<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(12)" id="nav-12"><span class="nav-num">13</span>Data Attributes<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(13)" id="nav-13"><span class="nav-num">14</span>Canvas &amp; SVG<span class="nav-check">✓</span></div>
+    <div class="nav-item" onclick="openLesson(14)" id="nav-14"><span class="nav-num">15</span>HTML Best Practices<span class="nav-check">✓</span></div>
+  </div>
+  <div style="height: 40px;"></div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <!-- HERO -->
+  <section class="hero visible" id="hero">
+    <div class="hero-badge">
+      <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>
+      15 lessons · Basics to Advanced
+    </div>
+    <h1>Learn <span>HTML</span><br>the right way.</h1>
+    <p>Master the language of the web — from your first <code>&lt;html&gt;</code> tag to advanced techniques used by real developers. Interactive, hands-on, no fluff.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">15</span><span class="stat-label">Lessons</span></div>
+      <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Exercises</span></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">Levels</span></div>
+    </div>
+    <button class="start-btn" onclick="openLesson(0)">
+      Start Learning
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="8" x2="13" y2="8"/>
+        <polyline points="9,4 13,8 9,12"/>
+      </svg>
+    </button>
+    <div class="path-cards">
+      <div class="path-card" onclick="openLesson(0)">
+        <div class="path-icon">🟢</div>
+        <div class="path-title">Basics</div>
+        <div class="path-desc">Structure, text, links, images, lists &amp; attributes. Build your first webpage.</div>
+        <div class="path-count">5 lessons</div>
+      </div>
+      <div class="path-card" onclick="openLesson(5)">
+        <div class="path-icon">🟡</div>
+        <div class="path-title">Intermediate</div>
+        <div class="path-desc">Tables, forms, semantic tags, media, and layout containers.</div>
+        <div class="path-count">5 lessons</div>
+      </div>
+      <div class="path-card" onclick="openLesson(10)">
+        <div class="path-icon">🟣</div>
+        <div class="path-title">Advanced</div>
+        <div class="path-desc">SEO, accessibility, data attributes, Canvas, SVG &amp; best practices.</div>
+        <div class="path-count">5 lessons</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LESSON VIEW (populated by app.js) -->
+  <div id="lesson-view" class="lesson-view"></div>
+
+</main>
+
+<script src="js/lessons.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
